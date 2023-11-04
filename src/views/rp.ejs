@@ -1,0 +1,189 @@
+
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+    <style>
+        @font-face {
+                            font-family: 'Satoshi-Font';
+                            src: url(/fonts/SatoshiBlack);
+                        }
+
+                        body {
+                            font-family: 'Satoshi-Font';
+                            justify-content: center;
+                            align-items: center;
+                            min-height: 100vh;
+                            overflow: hidden;
+                        }
+
+                        .discord-widget-container {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                          background-color: rgba(255, 255, 255, 0.09);
+                          border: 1px solid rgba(255, 255, 255, 0.105);
+                          border-radius: 12px;
+                            padding: 0;
+                            margin: 0;
+                            width: 333px;
+                            max-width: none;
+                            display: flex;
+                        }
+
+
+
+                        /* Profile picture style */
+                        .discord-widget-container img {
+                            border-radius: 50%;
+                            width: 60px;
+                            height: 60px;
+                            margin-right: 10px;
+                            z-index: 1;
+                            object-fit: cover;
+                            border: 2px solid rgba(255, 255, 255, 0.2)!important;
+                        }
+
+                        /* SVG style */
+                        .discord-widget-container svg {
+                            position: absolute;
+                            bottom: 10px;
+                            left: 47px;
+                            width: 24px;
+                            height: 24px;
+                            fill: currentColor;
+                            z-index: 2;
+                            width: 24px;
+                            color: #ff000093;
+                        }
+
+                        /* Username style */
+                        .discord-username {
+                            font-weight: bold;
+                            font-size: 18px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            color: white;
+                            font-family: 'Satoshi-Font';
+                            user-select: none;
+                        }
+
+                        /* About Me style */
+                        .discord-about-me {
+                            font-size: 13px;
+                            text-overflow: ellipsis;
+                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                            font-weight: 520;
+                            margin-left: -58px;
+                            margin-top: 4px;
+                            color: #ffffff;
+                            display: flex;
+                            white-space: nowrap;
+                            justify-content: left;
+                            font-style: italic;
+                            max-width: 80%; /* Added max width to prevent excessive width */
+                        }
+
+                        /* Nitro badge style */
+                        .discord-nitro-badge {
+                            background-image: url('https://cdn.discordapp.com/attachments/1108983215676473374/1161203327455993906/5a24b20b84fb3eafc138916729386e76.png?ex=653771df&is=6524fcdf&hm=2a4185eff6f3a84553622230759582f81e49ff7bd6a522195e7b72c7dc3a510e&');
+                            width: 20px;
+                            height: 20px;
+                            background-size: cover;
+                            margin-right: 5px;
+                        }
+    </style>
+</head>
+<body>
+    <div class="discord-widget-container">
+        <div class="dnd" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12 4c-4.41 0-8 3.59-8 8s3.59 8 8 8s8-3.59 8-8s-3.59-8-8-8zm5 9H7v-2h10v2z" opacity=".3"/>
+            <path fill="currentColor" d="M7 11h10v2H7z"/>
+            <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8z"/>
+          </div>
+          <% if (user_status == "idle") { %>
+        <div class="idle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48">
+              <mask id="ipTSleep0">
+                <g fill="none" stroke="#fff" stroke-linejoin="round" stroke-width="4">
+                  <path fill="#555" d="M16.866 7.47A17.986 17.986 0 0 0 16 13c0 9.941 8.059 18 18 18a17.94 17.94 0 0 0 7.134-1.47C38.801 36.767 32.012 42 24 42c-9.941 0-18-8.059-18-18c0-7.407 4.473-13.768 10.866-16.53Z"/>
+                  <path stroke-linecap="round" d="M31.66 10H41l-10 8h10"/>
+                </g>
+              </mask>
+              <path fill="orange" d="M0 0h48v48H0z" mask="url(#ipTSleep0)"/>
+            </svg>
+          </div>
+          <% } %>
+          <% if (user_status == "offline") { %>
+        <div class="offline">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path fill="#757575" d="M12 4c-4.41 0-8 3.59-8 8s3.59 8 8 8s8-3.59 8-8s-3.59-8-8-8zm5 9H7v-2h10v2z" opacity=".3"/>
+              <path fill="#757575" d="M7 11h10v2H7z"/>
+              <path fill="#757575" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8z"/>
+            </svg>
+          </div>
+          <% } %>
+        <% if (user_status == "online") { %>
+            <div class="online">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="8" fill="green" opacity=".3"/>
+              <path fill="green" d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10s10-4.47 10-10S17.53 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8s8 3.58 8 8s-3.58 8-8 8z"/>
+              <path fill="green" d="M8.5 13.5l2.5 2.5 4.5-4.5-1.5-1.5-3 3-1-1z"/>
+            </svg>
+          </div>
+          <%  } %>
+          <% if (user_status == "dnd") {%>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 4c-4.41 0-8 3.59-8 8s3.59 8 8 8s8-3.59 8-8s-3.59-8-8-8zm5 9H7v-2h10v2z" opacity=".3"/><path fill="currentColor" d="M7 11h10v2H7z"/><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8z"/></svg>
+            <% } %>
+        <img src="<%= avatar %>">
+        <div class="discord-username"><%= username %></div>
+        <div>
+        <div class="discord-nitro-badge"></div>
+        <% if (spotify.is === "true") { %>
+            <div class='discord-about-me' style="margin-left: -34px;">
+                Spotify<img src='https://cdn.discordapp.com/emojis/1130705952660803656.webp' alt='Spotify Icon' style='width: 11px; height: 10px; margin-right: 6px; margin-top: 3px; margin-left: 2px;'><br>
+                <span style='font-size: x-small; margin-left: -72px; margin-top: 20px;'><%= spotify.song %></span>
+            </div>
+        <% } else { %>
+            <% try { if (presence.type) {%>
+            <div class='discord-about-me' style="margin-left: -28px;">
+                <%= presence.name %><img id="img" src='' alt='Icon' style='width: 11px; height: 10px; margin-right: 6px; margin-top: 3px; margin-left: 2px;'><br>
+                <span style='font-size: x-small; margin-left: -61px; margin-top: 20px;'><%= presence.assets.largeText || presence.assets.smallText %></span>
+            </div>
+            <% } %>
+            <% } catch(e) { %>
+                <div class='discord-about-me' style="margin-left: -36px;">
+                    <%= custom_deatil %>
+                </div>
+            
+                <% } }%>
+        
+    </div>
+    </div>
+    <script>
+        function formatURL(URL) {
+    const prefix = 'mp:external/';
+    if (URL.startsWith(prefix)) {
+        const extractedURL = URL.substring(prefix.length);
+        return 'https://' + extractedURL;
+    }
+
+    return URL;
+}
+let isSpotfy = "<%= isSpotfy %>";
+<% try{%>
+let presence_type = "<%= presence.type %>";
+let imgL = '<%= presence.assets.largeImage %>';
+let imgS = '<%= presence.assets.smallImage %>'; 
+<%  } catch(e) {%>
+// 
+    <%  } %>
+if (presence_type) {
+            let url = imgL;
+            const formattedURL = url.substring(url.indexOf('https/')).replace('https/', 'https://');
+            
+            console.log(formattedURL);
+            document.getElementById('img').src = formattedURL;
+}
+                // nothing
+    </script>
+</body>
+</html>

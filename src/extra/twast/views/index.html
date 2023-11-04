@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TwastJS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="cdn/twast.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.4/dist/full.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+    <style>
+         @font-face {
+        font-family: 'Satoshi-Font';
+        src: url('https://cdn.jsdelivr.net/gh/Twiz-lol/Twast@main/SatoshiBlack.ttf');
+    }   
+        html {
+            background-color: #202020 !important;
+        }
+        body {
+            left: 0;
+            right: 0;
+            top: 0;
+            background-color: #202020;
+            width: 100%;
+            height: 100vh;
+        }
+        center>h1 {
+            font-size: 60px;
+            margin-top: 15vh;
+        }
+        .features {
+            display: flex;
+            width: 500px;
+
+        }
+        .feature {
+            background-color: #0000003d ;
+            height: 80px;
+            border-radius: 15px;
+        }
+        .feature>h2 {
+            margin-top: 15px;
+        }
+
+    </style>
+</head>
+    <body>  
+    <center>
+        <h1 style="
+    color: aliceblue;
+    font-family: 'Satoshi-Font';
+">Twast</h1>
+<hr style="box-sizing: border-box;
+border: 5px dashed #FFDB5C; border-radius: 50px; width: 150px;">
+<h2 style="color: aliceblue;
+font-family: 'Satoshi-Font';">Experience better  with  twast</h2>
+    <div class="features my-12 grid gap-x-8 gap-y-5 grid-cols-2 md:grid-cols-3">
+        <div class="feature">
+            <h2 style="color: aliceblue;
+font-family: 'Satoshi-Font';"><svg width="19" height="19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 3 3 5-5" stroke="#A2724E" stroke-width="2"></path></svg>Easy to use</h2>
+        </div>
+        <div class="feature">
+            <h2 style="color: aliceblue;
+font-family: 'Satoshi-Font';"><svg width="19" height="19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 3 3 5-5" stroke="#A2724E" stroke-width="2"></path></svg>Accessible</h2>
+        </div>
+        <div class="feature">
+            <h2 style="color: aliceblue;
+font-family: 'Satoshi-Font';"><svg width="19" height="19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 3 3 5-5" stroke="#A2724E" stroke-width="2"></path></svg>Customizable</h2>
+        </div>
+        <div class="feature">
+            <h2 style="color: aliceblue;
+font-family: 'Satoshi-Font';"><svg width="19" height="19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 3 3 5-5" stroke="#A2724E" stroke-width="2"></path></svg>Lightweight</h2>
+        </div>
+        <div class="feature">
+            <h2 style="color: aliceblue;
+font-family: 'Satoshi-Font';"><svg width="19" height="19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 3 3 5-5" stroke="#A2724E" stroke-width="2"></path></svg>HTML Support</h2>
+        </div>
+        <div class="feature">
+            <h2 style="color: aliceblue;
+font-family: 'Satoshi-Font';"><svg width="19" height="19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 3 3 5-5" stroke="#A2724E" stroke-width="2"></path></svg>Sexy By Deafult</h2>
+        </div>
+    </div>
+    <div class="flex flex-col gap-1 items-center" style="
+    width: 30vh;
+"><div class="h-6 w-6 mb-2 text-sm rounded-full bg-toast-900 text-toast-50 flex items-center justify-center" style="
+    background: antiquewhite;
+    color: black;
+">1</div><div class="font-bold">Use CDN</div><div class="text-red-700 text-sm">*Important</div><code style="background-color: #191919;" class="mt-2 border border-toast-200 py-2 px-4 rounded font-bold bg-white w-full text-center">
+    <code style="background-color: #191919;"><span class="text-600" style="    color: rgb(59 130 246 / 84%);"><</span><span style="    color: #8e0b0ba6;
+        ">script</span><span style="color: #a6a5025c"> src</span><span style="    color: rgb(59 130 246 / 84%);">="</span><span style="color: #14bd1469">https://api.twiz.lol/<br>cdn/twast.js</span><span style="    color: rgb(59 130 246 / 84%);">"></span></code></code></div>
+        
+<div class=" rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] max-w-4xl flex-wrap items-center justify-center gap-2 overflow-x-hidden bg-cover bg-top p-4 undefined" style="">
+    <button class="btn btn-accent" onclick="fire('success','Looks Cool arent it?', '5000')">Click me to success alert</button><br>
+    <br>
+    <button class="btn btn-accent" onclick="fire('error','Something went wrong whie displaying: Looks Cool Arent it','5000')" style="    border-color: #ef0000;
+    background-color: #ef00005e;">Click me to error alert</button><br><br>
+    <button class="btn btn-accent" onclick="fire('warn','Ooh warn?','5000')" style="    border-color: #efeb00;
+    background-color: #fffc005e;">Click me to error alert</button><br><br>
+    </div>
+    <p >Read the docs for more</p>
+</center>
+</body>
+</html>

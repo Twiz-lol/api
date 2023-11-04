@@ -1,0 +1,107 @@
+
+<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+<link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+<style>
+    @font-face {
+        font-family: 'Satoshi-Font';
+        src: url(/fonts/SatoshiBlack);
+    }
+
+    body {
+        background-color: #000000e8;
+        font-family: 'Satoshi-Font';
+    }
+
+    /* Container style */
+    .discord-widget-container {
+        display: flex;
+        border-radius: 15px;
+        width: 33vh;
+        height: 5vh;
+        background-color: rgb(255, 255, 255, 0.09);
+        border: 1px solid rgb(255, 255, 255, 0.105);
+        border-radius: 12px;
+        user-select: none;
+        position: absolute; /* Add position relative for positioning children */
+    }
+
+    /* Profile picture style */
+    .discord-widget-container img {
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        margin-right: 10px;
+        z-index: 1; /* Set z-index to ensure it's above the SVG */
+        object-fit: cover;
+        border: 2px solid rgb(255, 255, 255, 0.2)!important;
+    }
+
+    /* SVG style */
+    .discord-widget-container svg {
+        position: absolute;
+        bottom: 10px;
+        left: 47px;
+        width: 24px;
+        height: 24px;
+        fill: currentColor;
+        z-index: 2;
+        width: 24px;
+        color: #ff000093;
+    }
+
+    /* Username style */
+    .discord-username {
+        font-weight: bold;
+        font-size: 18px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: white;
+        top: 1.3vh;
+        font-family: 'Satoshi-Font';
+        user-select: none;
+    }
+
+    /* About Me style */
+    .discord-about-me {
+        font-size: 13px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 520;
+        margin-left: -36px;
+        margin-top: 4px;
+        color: #ffffff;
+        display: flex;
+        white-space: nowrap;
+        justify-content: left;
+        font-style: italic;
+    }
+
+    /* Nitro badge style */
+    .discord-nitro-badge {
+        background-image: url('https://cdn.discordapp.com/attachments/1108983215676473374/1161203327455993906/5a24b20b84fb3eafc138916729386e76.png?ex=653771df&is=6524fcdf&hm=2a4185eff6f3a84553622230759582f81e49ff7bd6a522195e7b72c7dc3a510e&');
+        width: 20px;
+        height: 20px;
+        background-size: cover;
+        margin-right: 5px;
+    }
+
+    /* Responsive design */
+    @media screen and (max-width: 768px) {
+        .discord-widget-container {
+            max-width: none;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="discord-widget-container">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 4c-4.41 0-8 3.59-8 8s3.59 8 8 8s8-3.59 8-8s-3.59-8-8-8zm5 9H7v-2h10v2z" opacity=".3"/><path fill="currentColor" d="M7 11h10v2H7z"/><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8z"/></svg>
+    <div class="discord-username" style="    text-align: center;
+    right: -26%;
+    position: relative;">User Does not exists</div>
+    <div>
+    </div>
+</div>
+</body>
+</html>
