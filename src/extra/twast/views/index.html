@@ -8,6 +8,7 @@
     <script src="cdn/twast.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.4/dist/full.css" rel="stylesheet" type="text/css" />
 <script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <style>
          @font-face {
         font-family: 'Satoshi-Font';
@@ -49,8 +50,8 @@
         <h1 style="
     color: aliceblue;
     font-family: 'Satoshi-Font';
-">Twast</h1>
-<hr style="box-sizing: border-box;
+">Twast</h1><div class="border relative border-blue-200 border-whit/50 inline-flex items-center p-0.5 pl-2.5 rounded-full gap-x-2 border-white/40 dark:border-white/30 bg-gray-950/20 dark:bg-white/10 before:scale-y-110 before:absolute before:inset-x-4 before:-bottom-px before:bg-gradient-to-r before:from-transparent before:via-yellow-50 before:to-transparent before:h-px before:w-3/5"><span class="text-sm tracking-wide text-white" style="font-family: 'Satoshi-Font';">TwastJS</span><span class="px-2 py-0.5 text-white text-xs font-semibold leading-5 uppercase tracking-wide bg-gray-950/20 dark:bg-white/20 border border-white/30 rounded-full" style="font-family: 'Satoshi-Font';">v1.0.1</span></div><br>
+<br><hr style="box-sizing: border-box;
 border: 5px dashed #FFDB5C; border-radius: 50px; width: 150px;">
 <h2 style="color: aliceblue;
 font-family: 'Satoshi-Font';">Experience better  with  twast</h2>
@@ -92,9 +93,9 @@ font-family: 'Satoshi-Font';"><svg width="19" height="19" fill="none" xmlns="htt
 <div class=" rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] max-w-4xl flex-wrap items-center justify-center gap-2 overflow-x-hidden bg-cover bg-top p-4 undefined" style="">
     <button class="btn btn-accent" onclick="fire('success','Looks Cool arent it?', '5000')">Click me to success alert</button><br>
     <br>
-    <button class="btn btn-accent" onclick="fire('error','Something went wrong whie displaying: Looks Cool Arent it','5000')" style="    border-color: #ef0000;
+    <button class="btn btn-accent" onclick="fire('error','Something went wrong whie displaying: Looks Cool Arent it','5000','<i class=\'bi bi-exclamation-circle-fill\'></i>')" style="    border-color: #ef0000;
     background-color: #ef00005e;">Click me to error alert</button><br><br>
-    <button class="btn btn-accent" onclick="fire('warn','Ooh warn?','5000')" style="    border-color: #efeb00;
+    <button class="btn btn-accent" onclick="fire('warn','Ooh warn?','5000',`<i class='i bi-exclamation-triangle-fill'></i>`)" style="    border-color: #efeb00;
     background-color: #fffc005e;">Click me to error alert</button><br><br>
     </div>
     <p >Read the docs for more</p>

@@ -1,36 +1,30 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
 // main.ts
-import express, { Request, Response } from 'express'
-import cors from 'cors'
-import { createDiscordClient } from './discord/discordClient'
-import { config } from './config/config'
-import { getPresence } from './utils/presenceUtils'
-import path from 'path'
-
-const app = express()
-const port = config.port
-
-app.use(cors())
-
-const client = createDiscordClient()
+const express_1 = __importDefault(require("express"));
+const cors_1 = __importDefault(require("cors"));
+const discordClient_1 = require("./discord/discordClient");
+const config_1 = require("./config/config");
+const presenceUtils_1 = require("./utils/presenceUtils");
+const path_1 = __importDefault(require("path"));
+const app = (0, express_1.default)();
+const port = config_1.config.port;
+app.use((0, cors_1.default)());
+const client = (0, discordClient_1.createDiscordClient)();
 app.set('view engine', 'ejs');
-
-// for apis
-export { app };
-// discord server api
-require('./extra/server/main.ts');
-
-app.get('/v3/sections/u_g/:user', async (req: Request, res: Response) => {
-	const presence = await getPresence(req.params.user, client, config)
-
-	if (!presence.success) {
-		res.status(404).json(presence)
-		return
-	}
-
-	res.json(presence)
-})
-app.get('/', (req,res)=> {
-	res.send(`
+app.get('/v3/sections/u_g/:user', async (req, res) => {
+    const presence = await (0, presenceUtils_1.getPresence)(req.params.user, client, config_1.config);
+    if (!presence.success) {
+        res.status(404).json(presence);
+        return;
+    }
+    res.json(presence);
+});
+app.get('/', (req, res) => {
+    res.send(`
 	
 	<!DOCTYPE html>
 	<html lang="en">
@@ -85,76 +79,72 @@ app.get('/', (req,res)=> {
 			</div>
 		</div>
 	</body>
-	</html>`)
-})
-
-app.get('/twast', (req,res)=> {
-	res.sendFile(path.join(__dirname, 'extra','twast','views','index.html'))
-})
-app.get('/cdn/twast.js',(req,res)=> {
-	res.sendFile(path.join(__dirname, 'extra','twast','twast.js'))
-})
-
-app.get('/fonts/SatoshiBlack', (req: Request, res: Response) => {
-	res.sendFile(path.join(__dirname, 'views','SatoshiBlack.ttf'))
-})
-
-app.get('/v3/widgets', async (req: Request, res: Response) => {
-	// const id = req.query.id as string; 
-	const presence = await getPresence(req.query.id as string, client, config)
-	if  (!req.query.id) {
-		res.status(404).render(path.join(__dirname, 'views', 'n.ejs'))
-	}
-	if (!presence.success) {
-		// res.status(404).json(presence)
-		res.status(404).render(path.join(__dirname, 'views', 'n.ejs'))
-		return
-	}
-	let  username = presence.data.discord_user.username;
-	let  avatar = presence.data.discord_user.avatar;
-	let  status = presence.data.discord_status;
-	let  isSpotfy = presence.data.listening_to_spotify;
-	//  Strings
-	let spotify = null;
-	let  imgL = null;
-	let  imgS = null;
-	let  custom_u = null;
-	let  presence_type = null;
-	let oo;
-	if (isSpotfy == true) {
-		spotify = presence.data.spotify;
-	} else  {
-		spotify = null;
-	}
-	let  presence1 = presence.data.activities[1];
-	try {
-	custom_u = presence.data.activities[0].state;
-	imgL = presence.data.activities[1].assets?.large_image;
-	imgS = presence.data.activities[1].assets?.small_image;
-	// console.log(presence.data.activities[1].type)
-	} catch(e) {
-		// custom_u = null;
-	}
-	// console.log(custom_u)
-	// console.log(isSpotfy +" "+ spotify?.album_art_url)
-
-	
-	res.render(path.join(__dirname, 'views', 'rp.ejs'), {
-		username: username,
-		avatar: avatar,
-		presence: presence1,
-		presence_type: presence_type,
-		user_status: status,
-		isSpotfy: isSpotfy,
-		spotify: spotify || "null",
-		custom_deatil: custom_u,
-		imgL: imgL || "null",
-		imgS: imgS || "null",
-	});
+	</html>`);
 });
-
-app.use((req: Request, res: Response) => {
-	res.status(404).send(`
+app.get('/twast', (req, res) => {
+    res.sendFile(path_1.default.join(__dirname, 'extra', 'twast', 'views', 'index.html'));
+});
+app.get('/cdn/twast.js', (req, res) => {
+    res.sendFile(path_1.default.join(__dirname, 'extra', 'twast', 'twast.js'));
+});
+app.get('/fonts/SatoshiBlack', (req, res) => {
+    res.sendFile(path_1.default.join(__dirname, 'views', 'SatoshiBlack.ttf'));
+});
+app.get('/v3/widgets', async (req, res) => {
+    // const id = req.query.id as string; 
+    const presence = await (0, presenceUtils_1.getPresence)(req.query.id, client, config_1.config);
+    if (!req.query.id) {
+        res.status(404).render(path_1.default.join(__dirname, 'views', 'n.ejs'));
+    }
+    if (!presence.success) {
+        // res.status(404).json(presence)
+        res.status(404).render(path_1.default.join(__dirname, 'views', 'n.ejs'));
+        return;
+    }
+    let username = presence.data.discord_user.username;
+    let avatar = presence.data.discord_user.avatar;
+    let status = presence.data.discord_status;
+    let isSpotfy = presence.data.listening_to_spotify;
+    //  Strings
+    let spotify = null;
+    let imgL = null;
+    let imgS = null;
+    let custom_u = null;
+    let presence_type = null;
+    let oo;
+    if (isSpotfy == true) {
+        spotify = presence.data.spotify;
+    }
+    else {
+        spotify = null;
+    }
+    let presence1 = presence.data.activities[1];
+    try {
+        custom_u = presence.data.activities[0].state;
+        imgL = presence.data.activities[1].assets?.large_image;
+        imgS = presence.data.activities[1].assets?.small_image;
+        // console.log(presence.data.activities[1].type)
+    }
+    catch (e) {
+        // custom_u = null;
+    }
+    // console.log(custom_u)
+    // console.log(isSpotfy +" "+ spotify?.album_art_url)
+    res.render(path_1.default.join(__dirname, 'views', 'rp.ejs'), {
+        username: username,
+        avatar: avatar,
+        presence: presence1,
+        presence_type: presence_type,
+        user_status: status,
+        isSpotfy: isSpotfy,
+        spotify: spotify || "null",
+        custom_deatil: custom_u,
+        imgL: imgL || "null",
+        imgS: imgS || "null",
+    });
+});
+app.use((req, res) => {
+    res.status(404).send(`
 	
 <!DOCTYPE html>
 <html lang="en">
@@ -214,11 +204,9 @@ app.use((req: Request, res: Response) => {
         </div>
     </div>
 </body>
-</html>`)
-})
-
+</html>`);
+});
 app.listen(port, () => {
-	console.log(`http://localhost:${port}`)
-})
-
-client.login(config.botToken)
+    console.log(`http://localhost:${port}`);
+});
+client.login(config_1.config.botToken);
