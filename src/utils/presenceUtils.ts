@@ -46,7 +46,8 @@ export async function getPresence(
 			client.guilds.fetch(guildId)
 		)
 
-		const guild = await Promise.all(guilds).then((guilds) =>
+		// deepcode ignore PromiseNotCaughtGeneral: <please specify a reason of ignoring this>
+  const guild = await Promise.all(guilds).then((guilds) =>
 			guilds.find((guild) => guild.members.cache.has(user))
 		)
 

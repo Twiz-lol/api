@@ -50,7 +50,11 @@
         <h1 style="
     color: aliceblue;
     font-family: 'Satoshi-Font';
-">Twast</h1><div class="border relative border-blue-200 border-whit/50 inline-flex items-center p-0.5 pl-2.5 rounded-full gap-x-2 border-white/40 dark:border-white/30 bg-gray-950/20 dark:bg-white/10 before:scale-y-110 before:absolute before:inset-x-4 before:-bottom-px before:bg-gradient-to-r before:from-transparent before:via-yellow-50 before:to-transparent before:h-px before:w-3/5"><span class="text-sm tracking-wide text-white" style="font-family: 'Satoshi-Font';">TwastJS</span><span class="px-2 py-0.5 text-white text-xs font-semibold leading-5 uppercase tracking-wide bg-gray-950/20 dark:bg-white/20 border border-white/30 rounded-full" style="font-family: 'Satoshi-Font';">v1.0.1</span></div><br>
+">Twast</h1><div class="border relative border-blue-200 border-whit/50 inline-flex items-center p-0.5 pl-2.5 rounded-full gap-x-2 border-white/40 dark:border-white/30 bg-gray-950/20 
+dark:bg-white/10 before:scale-y-110 before:absolute before:inset-x-4 before:-bottom-px before:bg-gradient-to-r before:from-transparent before:via-yellow-50 before:to-transparent 
+before:h-px before:w-3/5"><span class="text-sm tracking-wide text-white" style="font-family: 'Satoshi-Font';">TwastJS</span>
+<span class="px-2 py-0.5 text-white text-xs font-semibold leading-5 uppercase tracking-wide bg-gray-950/20 dark:bg-white/20 border border-white/30 rounded-full" 
+style="font-family: 'Satoshi-Font';">v1.0.1 Beta</span></div><br>
 <br><hr style="box-sizing: border-box;
 border: 5px dashed #FFDB5C; border-radius: 50px; width: 150px;">
 <h2 style="color: aliceblue;
@@ -91,12 +95,27 @@ font-family: 'Satoshi-Font';"><svg width="19" height="19" fill="none" xmlns="htt
         ">script</span><span style="color: #a6a5025c"> src</span><span style="    color: rgb(59 130 246 / 84%);">="</span><span style="color: #14bd1469">https://api.twiz.lol/<br>cdn/twast.js</span><span style="    color: rgb(59 130 246 / 84%);">"></span></code></code></div>
         
 <div class=" rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] max-w-4xl flex-wrap items-center justify-center gap-2 overflow-x-hidden bg-cover bg-top p-4 undefined" style="">
+    <h3>Top-center position</h3>
     <button class="btn btn-accent" onclick="fire('success','Looks Cool arent it?', '5000')">Click me to success alert</button><br>
     <br>
     <button class="btn btn-accent" onclick="fire('error','Something went wrong whie displaying: Looks Cool Arent it','5000','<i class=\'bi bi-exclamation-circle-fill\'></i>')" style="    border-color: #ef0000;
     background-color: #ef00005e;">Click me to error alert</button><br><br>
     <button class="btn btn-accent" onclick="fire('warn','Ooh warn?','5000',`<i class='i bi-exclamation-triangle-fill'></i>`)" style="    border-color: #efeb00;
     background-color: #fffc005e;">Click me to error alert</button><br><br>
+    <h3>Bottom-center position</h3>
+    <button class="btn btn-accent" onclick="fire('success','Looks Cool arent it?', '5000','','bottom-center')">Click me to success alert</button><br>
+    <br>
+    <button class="btn btn-accent" onclick="fire('error','Something went wrong whie displaying: Looks Cool Arent it','5000','<i class=\'bi bi-exclamation-circle-fill\'></i>','bottom-center')" style="    border-color: #ef0000;
+    background-color: #ef00005e;">Click me to error alert</button><br><br>
+    <button class="btn btn-accent" onclick="fire('warn','Ooh warn?','5000',`<i class='i bi-exclamation-triangle-fill'></i>`,'bottom-center')" style="    border-color: #efeb00;
+    background-color: #fffc005e;">Click me to error alert</button><br><br>
+     <h3>Bottom-right position</h3>
+     <button class="btn btn-accent" onclick="fire('success','Looks Cool arent it?', '5000','','bottom-right')">Click me to success alert</button><br>
+     <br>
+     <button class="btn btn-accent" onclick="fire('error','Something went wrong whie displaying: Looks Cool Arent it','5000','<i class=\'bi bi-exclamation-circle-fill\'></i>','bottom-right')" style="    border-color: #ef0000;
+     background-color: #ef00005e;">Click me to error alert</button><br><br>
+     <button class="btn btn-accent" onclick="fire('warn','Ooh warn?','5000',`<i class='i bi-exclamation-triangle-fill'></i>`,'bottom-right')" style="    border-color: #efeb00;
+     background-color: #fffc005e;">Click me to error alert</button><br><br>
     </div>
     <p >Read the docs for more</p>
 </center>

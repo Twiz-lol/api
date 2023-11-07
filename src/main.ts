@@ -1,4 +1,3 @@
-// main.ts
 import express, { Request, Response } from 'express'
 import cors from 'cors'
 import { createDiscordClient } from './discord/discordClient'
@@ -6,18 +5,20 @@ import { config } from './config/config'
 import { getPresence } from './utils/presenceUtils'
 import path from 'path'
 
-const app = express()
-const port = config.port
+const app = express();
+const port = config.port;
 
 app.use(cors())
 
 const client = createDiscordClient()
 app.set('view engine', 'ejs');
+app.disable('x-powered-by');
 
 // for apis
 export { app };
+
 // discord server api
-require('./extra/server/main.ts');
+require('./extra/gulids/main.ts');
 
 app.get('/v3/sections/u_g/:user', async (req: Request, res: Response) => {
 	const presence = await getPresence(req.params.user, client, config)
@@ -94,63 +95,82 @@ app.get('/twast', (req,res)=> {
 app.get('/cdn/twast.js',(req,res)=> {
 	res.sendFile(path.join(__dirname, 'extra','twast','twast.js'))
 })
+// file deepcode ignore NoRateLimitingForExpensiveWebOperation: not needed
 
 app.get('/fonts/SatoshiBlack', (req: Request, res: Response) => {
 	res.sendFile(path.join(__dirname, 'views','SatoshiBlack.ttf'))
 })
 
+import Domains from "./database/models/api-domains";
 app.get('/v3/widgets', async (req: Request, res: Response) => {
-	// const id = req.query.id as string; 
-	const presence = await getPresence(req.query.id as string, client, config)
-	if  (!req.query.id) {
-		res.status(404).render(path.join(__dirname, 'views', 'n.ejs'))
-	}
-	if (!presence.success) {
-		// res.status(404).json(presence)
-		res.status(404).render(path.join(__dirname, 'views', 'n.ejs'))
-		return
-	}
-	let  username = presence.data.discord_user.username;
-	let  avatar = presence.data.discord_user.avatar;
-	let  status = presence.data.discord_status;
-	let  isSpotfy = presence.data.listening_to_spotify;
-	//  Strings
-	let spotify = null;
-	let  imgL = null;
-	let  imgS = null;
-	let  custom_u = null;
-	let  presence_type = null;
-	let oo;
-	if (isSpotfy == true) {
-		spotify = presence.data.spotify;
-	} else  {
-		spotify = null;
-	}
-	let  presence1 = presence.data.activities[1];
-	try {
-	custom_u = presence.data.activities[0].state;
-	imgL = presence.data.activities[1].assets?.large_image;
-	imgS = presence.data.activities[1].assets?.small_image;
-	// console.log(presence.data.activities[1].type)
-	} catch(e) {
-		// custom_u = null;
-	}
-	// console.log(custom_u)
-	// console.log(isSpotfy +" "+ spotify?.album_art_url)
-
+	// protection
+	// const apikey = req.query.apikey as string;
+	// const search = await Domains.findOne({
+	// 	secret: apikey
+	// });
+	// const origin = req.get('host') as string;
+	// console.log(origin)
+	// if (search) {
+		// console.log(search?.allowedDomains);
+		// var alloweddo = JSON.parse(`${search.allowedDomains}`);
+		// if (alloweddo.includes(origin as string)) {
+		const presence = await getPresence(req.query.id as string, client, config)
+		if  (!req.query.id) {
+			res.status(404).render(path.join(__dirname, 'views', 'n.ejs'))
+		}
+		if (!presence.success) {
+			// res.status(404).json(presence)
+			res.status(404).render(path.join(__dirname, 'views', 'n.ejs'))
+			return
+		}
+		let  username = presence.data.discord_user.username;
+		let  avatar = presence.data.discord_user.avatar;
+		let  status = presence.data.discord_status;
+		let  isSpotfy = presence.data.listening_to_spotify;
+		//  Strings
+		let spotify = null;
+		let  imgL = null;
+		let  imgS = null;
+		let  custom_u = null;
+		let  presence_type = null;
+		let oo;
+		if (isSpotfy == true) {
+			spotify = presence.data.spotify;
+		} else  {
+			spotify = null;
+		}
+		let  presence1 = presence.data.activities[1];
+		try {
+		custom_u = presence.data.activities[0].state;
+		imgL = presence.data.activities[1].assets?.large_image;
+		imgS = presence.data.activities[1].assets?.small_image;
+		// console.log(presence.data.activities[1].type)
+		} catch(e) {
+			// custom_u = null;
+		}
+		// console.log(custom_u)
+		// console.log(isSpotfy +" "+ spotify?.album_art_url)
 	
-	res.render(path.join(__dirname, 'views', 'rp.ejs'), {
-		username: username,
-		avatar: avatar,
-		presence: presence1,
-		presence_type: presence_type,
-		user_status: status,
-		isSpotfy: isSpotfy,
-		spotify: spotify || "null",
-		custom_deatil: custom_u,
-		imgL: imgL || "null",
-		imgS: imgS || "null",
-	});
+		
+		res.render(path.join(__dirname, 'views', 'rp.ejs'), {
+			username: username,
+			avatar: avatar,
+			presence: presence1,
+			presence_type: presence_type,
+			user_status: status,
+			isSpotfy: isSpotfy,
+			spotify: spotify || "null",
+			custom_deatil: custom_u,
+			imgL: imgL || "null",
+			imgS: imgS || "null",
+		});
+// 	} else {
+//         return res.status(403).send(`Forbidden<hr>Not allowed`);
+// 	}
+// } else {
+// 	return res.status(403).send(`Forbidden<hr>Not allowed`);
+// }
+	
 });
 
 app.use((req: Request, res: Response) => {

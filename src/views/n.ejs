@@ -3,105 +3,48 @@
 <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
 <style>
     @font-face {
-        font-family: 'Satoshi-Font';
-        src: url(/fonts/SatoshiBlack);
-    }
+                        font-family: 'Satoshi-Font';
+                        src: url(/fonts/SatoshiBlack);
+                    }
 
-    body {
-        background-color: #000000e8;
-        font-family: 'Satoshi-Font';
-    }
+                    body {
+                        font-family: 'Satoshi-Font';
+                        justify-content: center;
+                        align-items: center;
+                        min-height: 100vh;
+                        overflow: hidden;
+                    }
+                    .container {
+    padding: 10px;
+    border-radius: 15px;
+    position: relative;
+    display: inline-flex;
+    place-items: center
+}
 
-    /* Container style */
-    .discord-widget-container {
-        display: flex;
-        border-radius: 15px;
-        width: 33vh;
-        height: 5vh;
-        background-color: rgb(255, 255, 255, 0.09);
-        border: 1px solid rgb(255, 255, 255, 0.105);
-        border-radius: 12px;
-        user-select: none;
-        position: absolute; /* Add position relative for positioning children */
-    }
+.container h1 {
+    text-align: left;
+    padding: 0;
+    margin: 0 0 0 5px;
+    font-size: 19.7px;
+    max-width: 240px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
 
-    /* Profile picture style */
-    .discord-widget-container img {
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        margin-right: 10px;
-        z-index: 1; /* Set z-index to ensure it's above the SVG */
-        object-fit: cover;
-        border: 2px solid rgb(255, 255, 255, 0.2)!important;
-    }
-
-    /* SVG style */
-    .discord-widget-container svg {
-        position: absolute;
-        bottom: 10px;
-        left: 47px;
-        width: 24px;
-        height: 24px;
-        fill: currentColor;
-        z-index: 2;
-        width: 24px;
-        color: #ff000093;
-    }
-
-    /* Username style */
-    .discord-username {
-        font-weight: bold;
-        font-size: 18px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        color: white;
-        top: 1.3vh;
-        font-family: 'Satoshi-Font';
-        user-select: none;
-    }
-
-    /* About Me style */
-    .discord-about-me {
-        font-size: 13px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-weight: 520;
-        margin-left: -36px;
-        margin-top: 4px;
-        color: #ffffff;
-        display: flex;
-        white-space: nowrap;
-        justify-content: left;
-        font-style: italic;
-    }
-
-    /* Nitro badge style */
-    .discord-nitro-badge {
-        background-image: url('https://cdn.discordapp.com/attachments/1108983215676473374/1161203327455993906/5a24b20b84fb3eafc138916729386e76.png?ex=653771df&is=6524fcdf&hm=2a4185eff6f3a84553622230759582f81e49ff7bd6a522195e7b72c7dc3a510e&');
-        width: 20px;
-        height: 20px;
-        background-size: cover;
-        margin-right: 5px;
-    }
-
-    /* Responsive design */
-    @media screen and (max-width: 768px) {
-        .discord-widget-container {
-            max-width: none;
-        }
-    }
 </style>
 </head>
 <body>
-<div class="discord-widget-container">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 4c-4.41 0-8 3.59-8 8s3.59 8 8 8s8-3.59 8-8s-3.59-8-8-8zm5 9H7v-2h10v2z" opacity=".3"/><path fill="currentColor" d="M7 11h10v2H7z"/><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8z"/></svg>
-    <div class="discord-username" style="    text-align: center;
-    right: -26%;
-    position: relative;">User Does not exists</div>
-    <div>
+    <div class="container" style="width:fit-content;background-color:rgb(255, 255, 255, 0.09);border:1px solid rgb(255, 255, 255, 0.2);margin-top:8px;margin-bottom:5px">
+        <div class="info"><h1 style="color:#FFFFFF;margin-right:3px">
+                <svg style="vertical-align:-3px;font-size:22px;color: #ff0000;" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><defs xmlns="http://www.w3.org/2000/svg">
+                    <image id="img1" href="data:image/png;base64,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" style="
+                width: 59px;
+                height: 61px;
+            "></image>
+                </defs><use xmlns="http://www.w3.org/2000/svg" id="Background" href="#img1" x="-5" y="-4"></use><
+            </svg> User not found</h1><h3 style="color:#FFFFFF">Join <a target="_blank" style="color:#bbbbbb;text-decoration:none" href="https://discord.gg/twiz">discord.gg/twiz</a> to display your status.</h3></div></div>
     </div>
-</div>
 </body>
 </html>
