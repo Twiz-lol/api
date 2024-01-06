@@ -8,7 +8,9 @@ import path from 'path'
 
 const app = express()
 const port = config.port
-
+// discord server api
+require('./extra/gulids/main.ts');
+app.disable('x-powered-by');
 // app.use(cors())
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000'); // Allow requests from localhost
@@ -26,6 +28,13 @@ app.options('*', (req, res) => {
 
 const client = createDiscordClient()
 app.set('view engine', 'ejs');
+
+app.get('/cdn/twast.js',(req,res)=> {
+	res.sendFile(path.join(__dirname, 'extra','twast','twast.js'))
+})
+app.get('/twast', (req,res)=> {
+	res.sendFile(path.join(__dirname, 'extra','twast','views','index.html'))
+})
 
 app.get('/v3/sections/u_g/:user', async (req: Request, res: Response) => {
 	const presence = await getPresence(req.params.user, client, config)
