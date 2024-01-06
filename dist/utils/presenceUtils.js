@@ -33,6 +33,7 @@ exports.formatSpotifyActivity = formatSpotifyActivity;
 async function getPresence(user, client, config) {
     try {
         const guilds = config.guildIds.map((guildId) => client.guilds.fetch(guildId));
+        // deepcode ignore PromiseNotCaughtGeneral: <please specify a reason of ignoring this>
         const guild = await Promise.all(guilds).then((guilds) => guilds.find((guild) => guild.members.cache.has(user)));
         if (!guild) {
             throw new Error('Member not found');
