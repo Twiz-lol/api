@@ -15,7 +15,7 @@ const app = (0, express_1.default)();
 exports.app = app;
 const port = config_1.config.port;
 // discord server api
-require('./extra/gulids/main.ts');
+require('./extra/gulids/main');
 app.disable('x-powered-by');
 // app.use(cors())
 app.use((req, res, next) => {
